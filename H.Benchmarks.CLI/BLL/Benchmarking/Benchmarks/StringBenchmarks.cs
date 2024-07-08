@@ -69,9 +69,7 @@ public class StringBenchmarks : ImABenchmarkContainer
     public IEnumerable<object[]> StringsToConcatenate()
     {
         yield return GenerateStrings(10);
-        yield return GenerateStrings(50);
         yield return GenerateStrings(100);
-        yield return GenerateStrings(500);
         yield return GenerateStrings(1000);
     }
 
