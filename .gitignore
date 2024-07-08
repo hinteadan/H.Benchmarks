@@ -396,3 +396,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+**/bin/**/*.*
+**/obj/**/*.*
+*.suo
+**/.vs/**/*.*
+**/*.cfg.txt
+**/*.csproj.user
+**/*.pfx
