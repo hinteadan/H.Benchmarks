@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using H.Necessaire;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -20,8 +21,10 @@ public class StringBenchmarks : ImABenchmarkContainer
     public string Name { get; } = "String Benchmarks";
     public string Description { get; } = "String operations benchmarks.";
 
+
     [Benchmark]
-    public string StringConcatenation_Via_Add_Operator()
+    [ArgumentsSource(nameof(StringsToConcatenate))]
+    public string StringConcatenation_Via_Add_Operator(string[] strings)
     {
         string result = "";
         foreach (string s in strings)
@@ -32,7 +35,8 @@ public class StringBenchmarks : ImABenchmarkContainer
     }
 
     [Benchmark]
-    public string StringConcatenation_Via_Interpolation()
+    [ArgumentsSource(nameof(StringsToConcatenate))]
+    public string StringConcatenation_Via_Interpolation(string[] strings)
     {
         string result = "";
         foreach (string s in strings)
@@ -43,7 +47,8 @@ public class StringBenchmarks : ImABenchmarkContainer
     }
 
     [Benchmark]
-    public string StringConcatenation_Via_StringBuilder()
+    [ArgumentsSource(nameof(StringsToConcatenate))]
+    public string StringConcatenation_Via_StringBuilder(string[] strings)
     {
         StringBuilder resultBuilder = new StringBuilder();
         foreach (string s in strings)
@@ -54,8 +59,29 @@ public class StringBenchmarks : ImABenchmarkContainer
     }
 
     [Benchmark]
-    public string StringConcatenation_Via_String_Join()
+    [ArgumentsSource(nameof(StringsToConcatenate))]
+    public string StringConcatenation_Via_String_Join(string[] strings)
     {
         return string.Join("", strings);
+    }
+
+
+    public IEnumerable<object[]> StringsToConcatenate()
+    {
+        yield return GenerateStrings(10);
+        yield return GenerateStrings(50);
+        yield return GenerateStrings(100);
+        yield return GenerateStrings(500);
+        yield return GenerateStrings(1000);
+    }
+
+    private string[] GenerateStrings(int numberOfStringsToConcatenate)
+    {
+        return
+            Enumerable
+            .Range(0, numberOfStringsToConcatenate)
+            .Select(i => i.ToString())
+            .ToArray()
+            ;
     }
 }
