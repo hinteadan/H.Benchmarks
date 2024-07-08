@@ -4,14 +4,13 @@ using BenchmarkDotNet.Diagnostics.Windows;
 
 namespace H.Benchmarks.CLI.BLL.Benchmarking;
 
-internal class BenchmarksConfig : ManualConfig
+internal class DefaultBenchmarksConfig : ManualConfig
 {
-    public BenchmarksConfig()
+    public DefaultBenchmarksConfig()
     {
         AddDiagnoser(
             MemoryDiagnoser.Default,
             new InliningDiagnoser(),
-            new EtwProfiler(),
             ThreadingDiagnoser.Default,
             ExceptionDiagnoser.Default
         );
