@@ -21,12 +21,6 @@ public class StringBenchmarks : ImABenchmarkContainer
     public string Description { get; } = "String operations benchmarks.";
 
     [Benchmark]
-    public string SimpleStringAllocation()
-    {
-        return "Test, Test, Testicles";
-    }
-
-    [Benchmark]
     public string StringConcatenation_Via_Add_Operator()
     {
         string result = "";
