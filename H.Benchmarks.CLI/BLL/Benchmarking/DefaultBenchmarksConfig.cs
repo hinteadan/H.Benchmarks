@@ -9,10 +9,7 @@ internal class DefaultBenchmarksConfig : ManualConfig
     public DefaultBenchmarksConfig()
     {
         AddDiagnoser(
-            MemoryDiagnoser.Default,
-            new InliningDiagnoser(),
-            ThreadingDiagnoser.Default,
-            ExceptionDiagnoser.Default
+            MemoryDiagnoser.Default
         );
     }
 }
