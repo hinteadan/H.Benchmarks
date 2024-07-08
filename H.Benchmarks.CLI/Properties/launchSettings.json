@@ -5,7 +5,7 @@
       "commandName": "Executable",
       "executablePath": "dotnet",
       "workingDirectory": "",
-      "commandLineArgs": "run --project $(SolutionDir)/H.Benchmarks.CLI/H.Benchmarks.CLI.csproj -c Release benchmark"
+      "commandLineArgs": "run --project $(ProjectPath) -c Release benchmark"
     },
 
     "CLI - debug": {
