@@ -1,6 +1,30 @@
 {
   "profiles": {
 
+    "CLI - benchmark object-creation": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "run --project $(ProjectPath) -c Release benchmark object-creation"
+    },
+
+    "CLI - benchmark count-vs-any": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "run --project $(ProjectPath) -c Release benchmark count-vs-any"
+    },
+
+    "CLI - benchmark enumerables": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "run --project $(ProjectPath) -c Release benchmark enumerables"
+    },
+
+    "CLI - benchmark linq.where": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "run --project $(ProjectPath) -c Release benchmark linq-where"
+    },
+
     "CLI - benchmark strings": {
       "commandName": "Executable",
       "executablePath": "dotnet",

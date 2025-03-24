@@ -1,6 +1,8 @@
+using H.Benchmarks.CLI.BLL;
 using H.Necessaire;
 using H.Necessaire.Runtime.CLI.Commands;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace H.Benchmarks.CLI.Commands
@@ -12,12 +14,9 @@ namespace H.Benchmarks.CLI.Commands
             Log("Debugging...");
             using (new TimeMeasurement(x => Log($"DONE Debugging in {x}")))
             {
-                await Task.Delay(TimeSpan.FromSeconds(.5));
+                await Task.Delay(TimeSpan.Zero);
 
-
-                //TODO: Do stuff here
-
-
+                var data = DataGenerator.NewRandomIntsEnumerable().ToArray();
             }
 
             return OperationResult.Win();
