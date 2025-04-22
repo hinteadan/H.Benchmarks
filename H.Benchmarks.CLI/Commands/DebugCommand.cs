@@ -1,6 +1,6 @@
 using H.Benchmarks.CLI.BLL;
 using H.Necessaire;
-using H.Necessaire.Runtime.CLI.Commands;
+using H.Necessaire.CLI.Commands;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
